@@ -26,6 +26,7 @@ parser.add_option("--config_filename", dest="config_filename", help=
 
 (options, args) = parser.parse_args()
 
+
 if not options.test_path:   # if filename is not given
 	parser.error('Error: path to test data must be specified. Pass --path to command line')
 
@@ -132,7 +133,7 @@ all_imgs = []
 
 classes = {}
 
-bbox_threshold = 0.8
+bbox_threshold = 0.2
 
 visualise = True
 
@@ -231,6 +232,6 @@ for idx, img_name in enumerate(sorted(os.listdir(img_path))):
 
 	print('Elapsed time = {}'.format(time.time() - st))
 	print(all_dets)
-	cv2.imshow('img', img)
-	cv2.waitKey(0)
-	# cv2.imwrite('./results_imgs/{}.png'.format(idx),img)
+	#cv2.imshow('img', img)
+	#cv2.waitKey(0)
+	cv2.imwrite('./results_imgs/{}.png'.format(idx),img)
